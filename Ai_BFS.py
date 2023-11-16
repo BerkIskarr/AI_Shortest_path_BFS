@@ -1,15 +1,30 @@
 '''
     The algorithm consists of three main sections.
 
-    In the first section, the `map` function is responsible for creating a graph. It reads a file line by line and identifies connections between nodes indicated by "#" symbols. Connections are stored in a temporary list (`path`), ensuring uniqueness. After processing all lines, it constructs a dictionary (`graph`) where each letter is a key, and its value is a list of connections to other letters. This flexible approach allows the `map` function to handle changes in the graph structure. The function returns the dictionary of connections.
+    In the first section, the `map` function is responsible for creating a graph. 
+    It reads a file line by line and identifies connections between nodes indicated by "#" symbols.
+    Connections are stored in a temporary list (`path`), ensuring uniqueness. After processing all lines,
+    it constructs a dictionary (`graph`) where each letter is a key, and its value is a list of connections 
+    to other letters. This flexible approach allows the `map` function to handle changes in the graph structure. 
+    The function returns the dictionary of connections.
 
-    The second section implements the Breadth-First Search (BFS) algorithm. The `bfs` function takes the graph and a starting point as parameters. It utilizes a queue and a visited list to explore nodes systematically. Starting from the initial node, it adds neighbors to both the queue and the visited list, iteratively exploring and marking nodes as visited. This section provides a generic BFS implementation that works with any given graph and root.
+    The second section implements the Breadth-First Search (BFS) algorithm. The `bfs` function takes the graph 
+    and a starting point as parameters. It utilizes a queue and a visited list to explore nodes systematically. 
+    Starting from the initial node, it adds neighbors to both the queue and the visited list, iteratively exploring
+    and marking nodes as visited. This section provides a generic BFS implementation that works with any given graph and root.
 
-    The third section contains the `shortest_way` function, which finds the shortest path between two nodes in the graph. It takes the graph, initial node, and goal node as parameters. The function limits the visited list with the ending node (`goal`) and constructs a one-way valid path (`path_goal`). Once the goal node is reached, the complete path is constructed by iterating over the connections in the graph. An important consideration is handling cases where the ASCII value of the initial node is greater than that of the goal node. In such cases, the function swaps the initial and goal nodes, ensuring correct pathfinding.
+    The third section contains the `shortest_way` function, which finds the shortest path between two nodes in the graph.
+    It takes the graph, initial node, and goal node as parameters. The function limits the visited list with the ending
+    node (`goal`) and constructs a one-way valid path (`path_goal`). Once the goal node is reached, the complete path is
+    constructed by iterating over the connections in the graph. An important consideration is handling cases where the 
+    ASCII value of the initial node is greater than that of the goal node. In such cases, the function swaps the initial 
+    and goal nodes, ensuring correct pathfinding.
 
-    Additionally, the code includes a function (`visited_list`) that returns the visited list limited by the goal node. This function is internally used in the `shortest_way` function.
+    Additionally, the code includes a function (`visited_list`) that returns the visited list limited by the goal node. 
+    This function is internally used in the `shortest_way` function.
 
-    The overall algorithm demonstrates effectiveness by leveraging BFS properties to find the shortest path. The dynamic graph creation and the adaptable nature of the functions contribute to a robust solution capable of handling various scenarios.
+    The overall algorithm demonstrates effectiveness by leveraging BFS properties to find the shortest path. The dynamic 
+    graph creation and the adaptable nature of the functions contribute to a robust solution capable of handling various scenarios.
 '''
 import numpy as ny
 # creation of the graph
